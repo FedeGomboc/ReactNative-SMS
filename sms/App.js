@@ -6,14 +6,14 @@ export default function App() {
   const [texto, setTexto] = useState()
 
   const llamarNumero = ({texto}) => {
-    const phoneNumber = {texto};
+    const phoneNumber = texto;
     Linking.openURL(`tel:${phoneNumber}`)
   }
 
   const mandarSMS = () => {
     const url = (Platform.OS === 'android')
-    ? 'sms:1160331228?body=HOLA'
-    : 'sms:1160331228'
+    ? 'sms:1555151452?body=HOLA'
+    : 'sms:1555151452'
     Linking.canOpenURL(url).then(supported => {
       if (!supported) {
         console.log('Unsupported url: ' + url)
