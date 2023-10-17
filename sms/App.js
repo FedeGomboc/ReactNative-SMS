@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Linking, Button, TouchableOpacity, Platform, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Linking, TouchableOpacity, Platform, TextInput } from 'react-native';
 import { useState } from 'react';
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
     Linking.openURL(`tel:${phoneNumber}`)
   }
 
-  const mandarSMS = () => {
+  const mandarSMS = ({texto}) => {
     const url = (Platform.OS === 'android')
     ? 'sms:1555151452?body=HOLA'
     : 'sms:1555151452'
@@ -23,9 +23,9 @@ export default function App() {
     }).catch(err => console.error('An error occurred', err))
   }
 
-  const mandarWhatsapp = () => {
-    const whatsappNo = 5491160331228
-    const whatsappMsg = "hola gay"
+  const mandarWhatsapp = ({texto}) => {
+    const whatsappNo = texto
+    const whatsappMsg = "hola"
     Linking.openURL(`whatsapp://send?phone=${whatsappNo}&text=${whatsappMsg}`);
   }
 
@@ -49,13 +49,13 @@ export default function App() {
 
       <Text>MANDAR SMS:</Text>
 
-      <TouchableOpacity onPress={() => mandarSMS()}>
+      <TouchableOpacity onPress={() => mandarSMS({texto})}>
         <Text>Textear</Text>
       </TouchableOpacity>
 
       <Text>MANDAR WHATSAPP:</Text>
 
-      <TouchableOpacity onPress={() => mandarWhatsapp()}>
+      <TouchableOpacity onPress={() => mandarWhatsapp({texto})}>
         <Text>Enviar</Text>
       </TouchableOpacity>
     </View>
