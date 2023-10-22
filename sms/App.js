@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Linking, TouchableOpacity, Platform, TextInput, Image } from 'react-native';
 import { useState } from 'react';
+import Logo from "../sms/assets/image.jpg" 
 
 export default function App() {
 
@@ -31,7 +32,10 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-
+      <Image
+        style={styles.image} 
+        source={Logo} 
+      />
       <Text style={styles.textoPrincipal}>Ingrese el numero</Text>
 
       <TextInput onChangeText={setTexto} value={texto} style={styles.input} keyboardType="numeric"/>
@@ -60,7 +64,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'green',
     alignItems: 'center',
     justifyContent: 'center',
     height: '100%',
